@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <style>
+        /* Add some basic styling for better visualization */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .chessboard {
+            display: inline-block;
+            font-size: 20px;
+        }
+        .chessboard span {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+        .black {
+            background-color: #333;
+            color: white;
+        }
+        .white {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="chessboard" id="chessboard"></div>
+
+    <script>
+        // User story 1: Create a function print(data)
+        function print(data) {
+            const label = document.createElement("span");
+            label.textContent = data;
+            document.getElementById("chessboard").appendChild(label);
+        }
+
+        // User story 2: Create a function newLine()
+        function newLine() {
+            const br = document.createElement("br");
+            document.getElementById("chessboard").appendChild(br);
+        }
+
+        // User story 3: Declare a variable board_size
+        const board_size = 8; // You can adjust this as needed
+
+        // Generate the chessboard
+        for (let row = 0; row < board_size; row++) {
+            for (let col = 0; col < board_size; col++) {
+                if ((row + col) % 2 === 0) {
+                    print("*"); // Even positions display "*"
+                } else {
+                    print("#"); // Odd positions display "#"
+                }
+            }
+            newLine(); // Go to the next line
+        }
+    </script>
+</body>
+</html>
